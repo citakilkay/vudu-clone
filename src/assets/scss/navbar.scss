@@ -1,0 +1,97 @@
+$item-text-color: #fff;
+$toggler-color: #fff;
+
+.navbar {
+    background: rgb(0, 123, 196);
+    background: linear-gradient(90deg,
+            rgba(0, 123, 196, 1) 0%,
+            rgba(1, 101, 161, 1) 6%,
+            rgba(4, 29, 45, 1) 100%);
+
+    &__body {
+        font-family: 'Roboto', sans-serif;
+        //flexbox
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: flex-start;
+        justify-content: space-between;
+
+        @include mq(tablet, max) {
+            //flexbox
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            margin-right: auto;
+        }
+
+        // Container
+        margin: 0 auto;
+        width: 87%;
+    }
+
+    &__toggler {
+        margin-top: 1rem;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        padding-bottom: 0.5rem;
+        border-radius: 3px;
+        cursor: pointer;
+        display: none; //changing in mobile
+
+        @include mq(tablet, max) {
+            //flexbox
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            margin-left: auto;
+
+            span {
+                display: block;
+                background-color: $toggler-color;
+                width: 16px;
+                height: 2px;
+                margin-top: 7px;
+            }
+
+            &.-active {
+                border: 1px solid $toggler-color;
+            }
+        }
+    }
+
+    &__list {
+        @include mq(tablet, max) {
+            //flexbox
+            display: none;
+
+            &.-open {
+                display: flex !important;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+            }
+        }
+    }
+
+    &__item {
+        margin-left: 0.8rem;
+        margin-right: 0.8rem;
+        color: $item-text-color;
+        font-size: 1.1rem;
+        line-height: 3.8rem;
+        cursor: pointer;
+
+        >.fas {
+            transform: scale(1.5);
+        }
+
+        &.-logo {
+            @include mq(tablet, max) {
+                position: relative;
+                top: -2.5rem;
+            }
+        }
+    }
+}
