@@ -29,16 +29,16 @@
 export default {
   setup() {
     const openToggler = (e) => {
-      const navbarLists = document.querySelectorAll(".navbar__list");
+      const navbarItems = document.querySelectorAll(".navbar__item");
       if (e.target.classList.contains("-active")) {
         e.target.classList.remove("-active");
-        navbarLists.forEach((navbarList) => {
-          navbarList.classList.remove("-open");
+        navbarItems.forEach((navbarItem) => {
+          navbarItem.classList.remove("-open");
         });
       } else {
         e.target.classList.add("-active");
-        navbarLists.forEach((navbarList) => {
-          navbarList.classList.add("-open");
+        navbarItems.forEach((navbarItem) => {
+          navbarItem.classList.add("-open");
         });
       }
     };

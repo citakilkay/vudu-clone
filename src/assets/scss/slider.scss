@@ -1,0 +1,51 @@
+.slider {
+    position: relative; // for slider button
+    overflow: hidden;
+    max-height: 60vh;
+    width: 100%;
+
+    @include mq(tablet, min) {
+        // Container
+        margin: 0 auto;
+        width: 87%;
+    }
+
+    &__next,
+    &__prev {
+        color: $slider-btn;
+        user-select: none;
+        position: absolute;
+        top: calc(50% - 1.5rem);
+        font-size: 3rem;
+        z-index: 1;
+        cursor: pointer;
+
+        @include mq(tablet, max) {
+            top: calc(30% - 1.5rem);
+            font-size: 2.4rem;
+        }
+
+        @include mq(mobile, max) {
+            top: calc(15% - 1.5rem);
+            font-size: 1.8rem;
+        }
+    }
+
+    &__next {
+        left: calc(100% - 1.5rem);
+    }
+
+    &__body {
+        //flexbox
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+    &__item {
+        //flexbox
+        width: 100%;
+        height: auto;
+    }
+}
