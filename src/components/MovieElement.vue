@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <h3 class="card__header">SALE</h3>
-    <div class="card__body" :style="{ backgroundImage: 'url'+'('+`https://image.tmdb.org/t/p/original/${movie.poster_path}`+ ')' }">
+    <div class="card__body" @mouseover="addActive" @mouseleave="removeActive" :style="{ backgroundImage: 'url'+'('+`https://image.tmdb.org/t/p/original/${movie.poster_path}`+ ')' }">
       <h3 class="card__title">
         {{ movie.original_title }}
       </h3>
@@ -10,13 +10,13 @@
         <span class="card__badge">90min</span>
       </div>
       <div class="card__rating">
-        <span class="far fa-star"></span>
-        <span class="far fa-star"></span>
-        <span class="far fa-star"></span>
-        <span class="far fa-star"></span>
-        <span class="far fa-star"></span>
+        <span class="fas fa-star"></span>
+        <span class="fas fa-star"></span>
+        <span class="fas fa-star"></span>
+        <span class="fas fa-star"></span>
+        <span class="fas fa-star"></span>
       </div>
-      <div class="card__">{{}}</div>
+      <div class="card__price">Rent/Buy from $2.99</div>
       <a class="card__adult">{{ movie.adult ? "+18" : "+12" }} </a>
     </div>
   </div>
@@ -26,45 +26,38 @@
 export default {
   props: ["movie"],
   setup(props) {
-    console.log(props.movie);
-    console.log("feadwa");
+    const addActive = (e) => {
+      const cardTitle = e.target.querySelector('.card__title');
+      const cardDate = e.target.querySelector('.card__date');
+      const cardRating = e.target.querySelector('.card__rating');
+      const cardPrice = e.target.querySelector('.card__price');
+      const cardAdult = e.target.querySelector('.card__adult');
+      cardTitle.classList.add('-active');
+      cardDate.classList.add('-active');
+      cardRating.classList.add('-active');
+      cardPrice.classList.add('-active');
+      cardAdult.classList.add('-active');
+    }
+    const removeActive = (e) => {
+      const cardTitle = e.target.querySelector('.card__title');
+      const cardDate = e.target.querySelector('.card__date');
+      const cardRating = e.target.querySelector('.card__rating');
+      const cardPrice = e.target.querySelector('.card__price');
+      const cardAdult = e.target.querySelector('.card__adult');
+      cardTitle.classList.remove('-active');
+      cardDate.classList.remove('-active');
+      cardRating.classList.remove('-active');
+      cardPrice.classList.remove('-active');
+      cardAdult.classList.remove('-active');
+    }
     return {
-        
+        addActive,
+        removeActive
     }
   },
 };
 </script>
 
 <style lang="scss" scoped>
-    .card {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        margin-left: 0.6rem;
-        margin-right: 0.6rem;
-        line-height: 10px;
-        &__header {
-            border-radius: 4px 4px 0 0;
-            display: block;
-            width: 100%;
-            padding-top: 0.4rem;
-            padding-bottom: 0.4rem;
-            background-color: #cf7b00;
-            line-height: 10px;
-            font-size: 1rem;
-            text-align: center;
-        }
-        &__body {
-            color: $item-text-color;
-            line-height: 1.6rem;
-            width: 9rem;
-            height: 15rem;
-            background-size: auto 100%;
-            box-shadow:inset 0 0 0 200px #0000007e;
-        }
-        &__title {
-            margin-top: auto;
-        }
-    }
+    @import '../assets/scss/movie-element.scss'
 </style>

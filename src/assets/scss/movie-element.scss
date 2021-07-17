@@ -1,0 +1,64 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0.6rem;
+    margin-right: 0.6rem;
+    line-height: 0.8rem;
+    cursor: pointer;
+
+    &__header {
+        border-radius: 4px 4px 0 0;
+        display: block;
+        width: 100%;
+        padding-top: 0.4rem;
+        padding-bottom: 0.4rem;
+        background-color: #cf7b00;
+        line-height: 10px;
+        font-size: 1rem;
+        text-align: center;
+        position: relative;
+        top: 0.9rem;
+    }
+
+    &__body {
+        color: $item-text-color;
+        line-height: 1.6rem;
+        width: 9rem;
+        height: 15rem;
+        background-size: auto 100%;
+        box-shadow: inset 0 0 0 200px #0000007e;
+
+    }
+
+    &__title {
+        font-size: 0.9rem;
+        margin-top: auto;
+        opacity: 0;
+    }
+
+    &__rating {
+        font-size: 0.9rem;
+        opacity: 0;
+    }
+
+    &__date {
+        font-size: 0.8rem;
+        opacity: 0;
+    }
+
+    &__adult {
+        opacity: 0;
+
+    }
+
+    &__price {
+        font-size: 0.8rem;
+        opacity: 0;
+    }
+
+    .-active {
+        opacity: 1;
+    }
+}

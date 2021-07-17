@@ -20,56 +20,12 @@ export default {
         MovieElement
     },
     props:['movieList'],
-    setup(props) {
-        console.log(props.movieList)
+    setup() {
+
     }
 }
 </script>
 
 <style lang='scss' scoped>
-    .list {
-        font-family: 'Roboto', sans-serif;
-        // Container
-        margin: 0 auto;
-        margin-top: 1.5rem;
-        
-        width: 87%;
-        &__header {
-            // flexbox
-            display: flex;
-            flex-direction: row;
-            flex-wrap: nowrap;
-            align-items: flex-start;
-            justify-content: space-between;
-            margin-bottom: 1rem;
-        }
-        &__title {
-            font-size: 1.1rem;
-            font-weight: bold;
-            color: $item-text-color;
-            cursor: pointer;
-            &:hover {
-                color: $navbar-item-hover;
-                text-decoration: underline;
-                text-decoration-color: $text-underline;
-            }
-        }
-        &__view-all {
-            cursor: pointer;
-            font-size: 1rem;
-            color: $view-all-color;
-
-            &:hover {
-                color: $item-text-color;
-            }
-        }
-        &__body {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: nowrap;
-            align-items: flex-start;
-            justify-content: flex-start;
-            overflow: hidden;
-        }
-    }
+    @import '../assets/scss/movielist.scss';
 </style>
